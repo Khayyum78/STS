@@ -1,0 +1,6 @@
+{
+  "java.project.sourcePaths": ["src/main/java"],
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "java.compile.nullAnalysis.mode": "automatic",
+  "maven.executable.path": "C:\\Program Files\\Apache\\maven\\bin\\mvn.cmd"
+}
