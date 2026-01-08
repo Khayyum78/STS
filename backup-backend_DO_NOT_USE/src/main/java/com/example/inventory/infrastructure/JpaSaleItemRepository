@@ -1,0 +1,9 @@
+package com.example.inventory.infrastructure;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+
+public interface JpaSaleItemRepository extends JpaRepository<JpaSaleItemEntity, Long> {
+    List<JpaSaleItemEntity> findBySaleId(Long saleId);
+}

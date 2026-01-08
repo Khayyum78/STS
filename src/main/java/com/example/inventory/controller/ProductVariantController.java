@@ -1,14 +1,26 @@
 package com.example.inventory.controller;
 
-import com.example.inventory.controller.dto.*;
+import java.util.stream.Collectors;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.inventory.application.ProductVariantService;
+import com.example.inventory.controller.dto.PagedResponse;
+import com.example.inventory.controller.dto.VariantBulkRequest;
+import com.example.inventory.controller.dto.VariantRequest;
+import com.example.inventory.controller.dto.VariantResponse;
 import com.example.inventory.controller.mapper.VariantMapper;
 import com.example.inventory.domain.PagedResult;
 import com.example.inventory.domain.ProductVariant;
-import com.example.inventory.application.ProductVariantService;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/variants")
@@ -28,7 +40,7 @@ public class ProductVariantController {
             @RequestParam(defaultValue = "asc") String dir,
             @RequestParam(required = false) Long productId,
             @RequestParam(required = false) String color,
-            @RequestParam(value = "sizeFilter", required = false) String sizeFilter,
+            @RequestParam(required = false) String sizeFilter,
             @RequestParam(required = false) String q
     ){
         PagedResult<ProductVariant> pr = service.getPaged(page, size, sort, dir, productId, color, sizeFilter, q);

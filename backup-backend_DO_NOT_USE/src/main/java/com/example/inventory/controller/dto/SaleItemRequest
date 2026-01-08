@@ -1,0 +1,9 @@
+package com.example.inventory.controller.dto;
+
+import java.math.BigDecimal;
+
+public class SaleItemRequest {
+    public Long variantId;
+    public Integer qty;
+    public BigDecimal unitPrice; // optional
+}

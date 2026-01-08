@@ -1,0 +1,12 @@
+package com.example.inventory.controller.dto;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.List;
+
+public class SaleResponse {
+    public Long id;
+    public LocalDateTime createdAt;
+    public BigDecimal total;
+    public List<SaleItemResponse> items;
+}

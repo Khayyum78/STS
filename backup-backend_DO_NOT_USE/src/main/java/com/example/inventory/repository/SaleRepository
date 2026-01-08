@@ -1,0 +1,14 @@
+package com.example.inventory.repository;
+
+import com.example.inventory.domain.PagedResult;
+import com.example.inventory.domain.Sale;
+
+import java.time.LocalDateTime;
+import java.util.Optional;
+
+public interface SaleRepository {
+    Sale save(Sale sale);
+    Optional<Sale> findById(Long id);
+    PagedResult<Sale> findPaged(Integer page, Integer size, String sort, String dir,
+                                LocalDateTime from, LocalDateTime to);
+}

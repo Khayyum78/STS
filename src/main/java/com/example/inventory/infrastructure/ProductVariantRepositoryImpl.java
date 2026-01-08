@@ -1,5 +1,6 @@
 package com.example.inventory.infrastructure;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,8 +14,21 @@ import com.example.inventory.domain.PagedResult;
 import com.example.inventory.domain.ProductVariant;
 import com.example.inventory.repository.ProductVariantRepository;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+
 @Repository
 public class ProductVariantRepositoryImpl implements ProductVariantRepository {
+
+    @PersistenceContext
+    private EntityManager em;
+    @Override
+    public List<ProductVariant> findByIdIn(Collection<Long> ids) {
+        var query = em.createQuery("SELECT v FROM JpaProductVariantEntity v WHERE v.id IN :ids", JpaProductVariantEntity.class);
+        query.setParameter("ids", ids);
+        var results = query.getResultList();
+        return results.stream().map(this::toDomain).toList();
+    }
 
     private final JpaProductVariantRepository jpa;
 

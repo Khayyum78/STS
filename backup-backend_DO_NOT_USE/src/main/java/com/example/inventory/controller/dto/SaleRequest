@@ -1,0 +1,7 @@
+package com.example.inventory.controller.dto;
+
+import java.util.List;
+
+public class SaleRequest {
+    public List<SaleItemRequest> items;
+}

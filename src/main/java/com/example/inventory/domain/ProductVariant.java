@@ -9,6 +9,7 @@ public class ProductVariant {
     private String barcode;   // optional unique
     private String color;
     private String size;
+    private String name;
     private BigDecimal price;
     private Integer quantity;
 
@@ -21,6 +22,7 @@ public class ProductVariant {
     }
 
     public Long getId() { return id; }
+    public String getName() { return name; }
     public Long getProductId() { return productId; }
     public String getSku() { return sku; }
     public String getBarcode() { return barcode; }
@@ -30,6 +32,7 @@ public class ProductVariant {
     public Integer getQuantity() { return quantity; }
 
     public void setId(Long id) { this.id = id; }
+    public void setName(String name) { this.name = name; }
     public void setProductId(Long productId) { this.productId = productId; }
     public void setSku(String sku) { this.sku = sku; }
     public void setBarcode(String barcode) { this.barcode = barcode; }

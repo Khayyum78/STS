@@ -1,5 +1,6 @@
 package com.example.inventory.repository;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,6 +14,7 @@ public interface ProductVariantRepository {
     boolean existsBySku(String sku);
     boolean existsByBarcode(String barcode);
     List<ProductVariant> findByProductId(Long productId);
+    List<ProductVariant> findByIdIn(Collection<Long> ids);
 
     PagedResult<ProductVariant> findPaged(Integer page, Integer size, String sort, String dir,
                                           Long productId, String color, String sizeFilter, String q);
